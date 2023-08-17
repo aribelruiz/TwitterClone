@@ -1,0 +1,37 @@
+$postRadius: 15px;
+
+.post {
+    background-color: rgb(255, 255, 255);
+
+    border-radius: $postRadius;
+
+    max-width: 50%;
+    margin: 3% auto 3% auto;
+}
+
+.post:hover {
+    filter: drop-shadow(0px 3px 3px rgb(171, 171, 171));
+    transition: filter 0.2s ease;
+    cursor: pointer;
+}
+
+.post-header {
+    background-color: rgb(144, 199, 217);
+    border-radius: $postRadius $postRadius 0px 0px;
+    padding: 5px;
+}
+
+.post-body {
+    border-color: rgba(158, 158, 158, 0.323);
+    border-style: solid;
+    border-top: none;
+    padding: 7%;
+}
+
+.post-footer {
+    background-color: rgba(158, 158, 158, 0.323);
+    border-radius: 0px 0px $postRadius $postRadius;
+    text-align: end;
+    padding: 3px;
+    padding-right: 10px;
+}

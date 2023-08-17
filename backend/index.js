@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
 app.use(express.json());
+app.use(cors({
+    // Set the browser cache time for preflight responses
+    maxAge: 86400,
+    preflightContinue: true // Allow us to manually add to preflights
+}));
 
 const { Sequelize } = require('sequelize');
 const db = require('./models');
