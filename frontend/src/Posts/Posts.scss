@@ -1,5 +1,6 @@
 $postRadius: 15px;
 $postBlue: rgb(120, 188, 211);
+$postGray: rgb(214, 214, 214);
 
 .post {
     background-color: rgb(255, 255, 255);
@@ -24,14 +25,14 @@ $postBlue: rgb(120, 188, 211);
 }
 
 .post-body {
-    border-color: rgba(158, 158, 158, 0.323);
+    border-color: $postGray;
     border-style: solid;
     border-top: none;
     padding: 7%;
 }
 
 .post-footer {
-    background-color: rgba(158, 158, 158, 0.323);
+    background-color: $postGray;
     border-radius: 0px 0px $postRadius $postRadius;
     text-align: end;
     padding: 3px;

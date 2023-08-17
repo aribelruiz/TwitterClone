@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Home from './Pages/Home/Home';
@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Link to="/create-post"> Create A Post </Link>
-        <hr></hr>
-        <Link to="/"> Home Page </Link>
-        <hr></hr>
+        <div className='navbar'>
+          <Link className='nav-link' to="/create-post"> Create A Post </Link>
+          <Link className='nav-link' to="/"> Home Page </Link>
+        </div>
 
         <Routes>
           <Route exact path='/' element={<Home/>}/>
