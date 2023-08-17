@@ -1,0 +1,48 @@
+
+$postRadius: 15px;
+$postBlue: rgb(120, 188, 211);
+
+.create-post {
+    display: flex;
+    justify-content: center;
+}
+
+.post-form {
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(156, 156, 156);
+    border-style: solid;
+    border-radius: $postRadius;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+    width: 55vw;
+    padding: 20px;
+    margin: 5%;
+}
+
+.post-form input {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.post-form span{
+    color: rgba(235, 0, 0, 0.882);
+}
+
+.post-form button {
+    background-color: $postBlue;
+    color: white;
+    border-style: none;
+    border-radius: $postRadius;
+
+    height: 30%;
+    margin-top: 20px;
+}
+
+.post-form button:hover {
+    background-color: rgb(71, 161, 192);
+    cursor: pointer;
+}
