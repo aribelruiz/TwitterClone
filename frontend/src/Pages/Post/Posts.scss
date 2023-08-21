@@ -2,12 +2,11 @@ $postRadius: 15px;
 $postBlue: rgb(120, 188, 211);
 $postGray: rgb(214, 214, 214);
 
+// Post
 .post {
     background-color: rgb(255, 255, 255);
-
     border-radius: $postRadius;
-
-    max-width: 50%;
+    max-width: 45%;
     margin: 3% auto 3% auto;
 }
 
@@ -21,7 +20,7 @@ $postGray: rgb(214, 214, 214);
     background-color: $postBlue;
     color: white;
     border-radius: $postRadius $postRadius 0px 0px;
-    padding: 5px;
+    padding: 7px;
 }
 
 .post-body {
@@ -35,6 +34,23 @@ $postGray: rgb(214, 214, 214);
     background-color: $postGray;
     border-radius: 0px 0px $postRadius $postRadius;
     text-align: end;
-    padding: 3px;
-    padding-right: 10px;
+    padding: 7px;
+}
+
+// Post Page
+.post-page .post:hover{
+    filter: none;
+    transition: none;
+    cursor: default;
+}
+
+.post-page .post {
+    max-width: 55%;
+    font-size: larger;
+}
+
+.post-page .post-comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -7,6 +8,8 @@ import './CreatePost.scss';
 
 function CreatePost() {
   
+  let navigate = useNavigate();
+
   const inititalValues = {
     title: "",
     postText: "",
@@ -22,7 +25,7 @@ function CreatePost() {
   
   const onSubmit = (data) => {
     axios.post("http://localhost:8080/posts", data).then((res) => {
-      console.log("It worked!");
+      navigate(`/`);
     });
   }
 
