@@ -45,12 +45,71 @@ $postGray: rgb(214, 214, 214);
 }
 
 .post-page .post {
-    max-width: 55%;
     font-size: larger;
 }
 
+.post-page .post, .post-page .post-comments {
+    max-width: 55%;
+}
+
+// Comments
+
 .post-page .post-comments {
+    margin: auto;
+}
+
+.comment-input {
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(156, 156, 156);
+    border-style: solid;
+    border-radius: $postRadius;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.comment-input input {
+    border-radius: $postRadius - 5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 40px;
+    width: 77%;
+}
+
+.comment-input button {
+    background-color: $postBlue;
+    color: white;
+    border-color: $postBlue;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: $postRadius - 5px;
+    min-width: 20%;
+}
+
+.comment-input button:hover {
+    background-color: rgb(71, 161, 192);
+    border-color: rgb(71, 161, 192);
+    cursor: pointer;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 15px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.comment {
+    border-color: $postGray;
+    border-style: solid;
+    border-radius: $postRadius - 10px;
+    width: 100%;
+    text-align: left;
+    padding: 20px 0px 20px 0px;
+}
+
+.comment p {
+    padding-left: 20px;
 }
