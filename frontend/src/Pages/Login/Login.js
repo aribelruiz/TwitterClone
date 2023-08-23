@@ -17,8 +17,12 @@ function Login() {
         const data = { username: username, password: password };
 
         axios.post("http://localhost:8080/auth/login", data).then((res) => {
-            console.log(res.data);
             SetErrorMessage(res.data.error);
+
+            if(!res.data.error) {
+                sessionStorage.setItem("accessToken", res.data);
+                navigate('/');
+            }
         });
     };
 

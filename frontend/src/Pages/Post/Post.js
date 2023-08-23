@@ -9,6 +9,7 @@ function Post() {
     const [postObj, setPostObj] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
+    const [errorMessage, SetErrorMessage] = useState("");
 
     useEffect(() => {
         axios.get(`http://localhost:8080/posts/postById/${id}`).then((res) => {
@@ -21,12 +22,26 @@ function Post() {
     }, [id]);
 
     const addComment = () => {
-        axios.post("http://localhost:8080/comments", {commentBody: newComment, PostId: id})
-        .then((res) => {
-            const commentToAdd = {commentBody: newComment};
-            setComments([...comments, commentToAdd]);
+        axios.post(
+            "http://localhost:8080/comments", 
+            {   commentBody: newComment, PostId: id },
+            {   headers: { 
+                    accessToken: sessionStorage.getItem("accessToken") 
+                }
+            }
 
-            setNewComment("");
+        ).then((res) => {
+
+            if (res.data.error) {
+                SetErrorMessage(res.data.error);
+            }
+            else {
+                const commentToAdd = {commentBody: newComment};
+                setComments([...comments, commentToAdd]);
+    
+                setNewComment("");
+                SetErrorMessage("");
+            }
         });
     }
 
@@ -42,8 +57,11 @@ function Post() {
             <div className='post-comments'>
                 <div className='comments'> 
                     <div className='comment-input'>
-                        <input type='text' placeholder='Comment...' autoComplete='off' value={newComment} onChange={(e) => {setNewComment(e.target.value)}}/>
-                        <button type='submit' onClick={addComment}> Add Comment </button>
+                        <div className='comment-input-boxes'>
+                            <input type='text' placeholder='Comment...' autoComplete='off' value={newComment} onChange={(e) => {setNewComment(e.target.value)}}/>
+                            <button type='submit' onClick={addComment}> Add Comment </button>
+                        </div>
+                        <span>{errorMessage}</span>
                     </div>
                     <div className='comment-list'>
                     { comments.map((comment, index) => {

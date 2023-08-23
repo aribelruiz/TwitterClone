@@ -64,10 +64,21 @@ $postGray: rgb(214, 214, 214);
     border-style: solid;
     border-radius: $postRadius;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    row-gap: 5px;
     padding: 15px;
 }
 
+.comment-input span {
+    color: red;
+}
+
+.comment-input-boxes {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5px;
+}
 .comment-input input {
     border-radius: $postRadius - 5px;
     border-style: solid;
