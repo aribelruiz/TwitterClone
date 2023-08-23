@@ -1,4 +1,4 @@
-# FullStackPractice
+# Twitter Clone: Full-Stack Development Practice
 
 This React application was built to practice my existing front-end skills and expand upon my backend skills with database and API development. 
 
