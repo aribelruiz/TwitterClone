@@ -10,7 +10,8 @@ const validateToken = (req, res, next) => {
 
         // Verifying if acccess token is valid using secret token
         const validToken = verify(accessToken, "gmsjgiobkqxqmhk");
-
+        req.user = validToken;
+        
         if (validToken)
             return next();
         

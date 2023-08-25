@@ -36,7 +36,7 @@ function Post() {
                 SetErrorMessage(res.data.error);
             }
             else {
-                const commentToAdd = {commentBody: newComment};
+                const commentToAdd = {commentBody: newComment, username: res.data.username};
                 setComments([...comments, commentToAdd]);
     
                 setNewComment("");
@@ -44,8 +44,6 @@ function Post() {
             }
         });
     }
-
-
 
     return (
         <div className='post-page'>
@@ -68,6 +66,7 @@ function Post() {
                         return (
                             <div key={index} className='comment'> 
                                 <p>{comment.commentBody}</p>
+                                <label>@ {comment.username}</label>
                             </div>
                         )
                     })}

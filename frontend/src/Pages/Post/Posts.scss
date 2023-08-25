@@ -119,6 +119,16 @@ $postGray: rgb(214, 214, 214);
     width: 100%;
     text-align: left;
     padding: 20px 0px 20px 0px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.comment label {
+    // background-color: red;
+    text-align: right;
+    padding: 0px 20px 0px 0px;
+
 }
 
 .comment p {
