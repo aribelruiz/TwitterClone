@@ -26,7 +26,7 @@ function Post() {
             "http://localhost:8080/comments", 
             {   commentBody: newComment, PostId: id },
             {   headers: { 
-                    accessToken: sessionStorage.getItem("accessToken") 
+                    accessToken: localStorage.getItem("accessToken") 
                 }
             }
 
