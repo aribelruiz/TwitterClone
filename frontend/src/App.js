@@ -28,7 +28,8 @@ function App() {
         });
       }
     })    
-  }, [authState]);
+    // eslint-disable-next-line
+  }, []);
 
 
   // Function for logging out user

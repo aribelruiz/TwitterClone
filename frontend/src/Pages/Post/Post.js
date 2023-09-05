@@ -27,8 +27,8 @@ function Post() {
     const addComment = () => {
         axios.post(
             "http://localhost:8080/comments", 
-            {   commentBody: newComment, PostId: id },
-            {   headers: { accessToken: localStorage.getItem("accessToken") }}
+            { commentBody: newComment, PostId: id },
+            { headers: { accessToken: localStorage.getItem("accessToken")} }
         ).then((res) => {
 
             if (res.data.error) {
