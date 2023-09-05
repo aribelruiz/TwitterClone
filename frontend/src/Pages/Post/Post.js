@@ -1,11 +1,14 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from '../../helpers/AuthContext';
 
 import './Posts.scss';
 function Post() {
 
     let {id} = useParams();
+    const { authState } = useContext(AuthContext);
+
     const [postObj, setPostObj] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
@@ -25,25 +28,34 @@ function Post() {
         axios.post(
             "http://localhost:8080/comments", 
             {   commentBody: newComment, PostId: id },
-            {   headers: { 
-                    accessToken: localStorage.getItem("accessToken") 
-                }
-            }
-
+            {   headers: { accessToken: localStorage.getItem("accessToken") }}
         ).then((res) => {
 
             if (res.data.error) {
                 SetErrorMessage(res.data.error);
             }
             else {
-                const commentToAdd = {commentBody: newComment, username: res.data.username};
+                const commentToAdd = {commentBody: res.data.commentBody, username: res.data.username, id: res.data.id};
                 setComments([...comments, commentToAdd]);
     
                 setNewComment("");
                 SetErrorMessage("");
             }
         });
-    }
+    };
+
+    const deleteComment = (id) => {
+        axios.delete(
+            `http://localhost:8080/comments/${id}`, 
+            {   headers: { accessToken: localStorage.getItem("accessToken") }}
+        ).then(() => {
+            setComments(
+                comments.filter((val) => {
+                    return val.id !== id;
+                })
+            );
+        });
+    };
 
     return (
         <div className='post-page'>
@@ -62,14 +74,15 @@ function Post() {
                         <span>{errorMessage}</span>
                     </div>
                     <div className='comment-list'>
-                    { comments.map((comment, index) => {
-                        return (
-                            <div key={index} className='comment'> 
-                                <p>{comment.commentBody}</p>
-                                <label>@ {comment.username}</label>
-                            </div>
-                        )
-                    })}
+                        { comments.map((comment, index) => {
+                            return (
+                                <div key={index} className='comment'> 
+                                    {authState.username === comment.username && <button className='delete-btn' onClick={() => {deleteComment(comment.id)}}>X Delete</button>}
+                                    <p>{comment.commentBody}</p>
+                                    <label>@ {comment.username}</label>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>

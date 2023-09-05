@@ -124,6 +124,21 @@ $postGray: rgb(214, 214, 214);
     flex-direction: column;
 }
 
+.comment .delete-btn {
+    background-color: red;
+    color: white;
+    border-style: none;
+    width: fit-content;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.comment .delete-btn:hover {
+    background-color: rgb(176, 0, 0);
+    cursor: pointer;
+}
+
 .comment label {
     // background-color: red;
     text-align: right;
