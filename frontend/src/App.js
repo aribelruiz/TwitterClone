@@ -13,17 +13,29 @@ import axios from 'axios';
 
 function App() {
 
-  const [authState, setAuthState] = useState(false);
+  const [authState, setAuthState] = useState({username: "", id: 0, status: false});
 
   useEffect(() => {
     axios.get("http://localhost:8080/auth/authorized", {headers: {accessToken: localStorage.getItem('accessToken')}})
     .then((res) => {
-      if (res.data.error)
-        setAuthState(false);
-      else
-        setAuthState(true);
+      if (res.data.error) {
+        setAuthState({...authState, status: false});
+      } else {
+        setAuthState({
+          username: res.data.username, 
+          id: res.data.id, 
+          status: true,
+        });
+      }
     })    
-  }, []);
+  }, [authState]);
+
+
+  // Function for logging out user
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    setAuthState({username: "", id: 0, status: false});
+  };
 
   return (
     <div className="App">
@@ -31,15 +43,19 @@ function App() {
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <Router>
           <div className='navbar'>
-          <Link className='nav-link' to="/"> Home Page </Link>
+            <Link className='nav-link' to="/"> Home Page </Link>
             <Link className='nav-link' to="/create-post"> Create A Post </Link>
 
-            {!authState && (
+            {!authState.status ? (
               <>
                 <Link className='nav-link' to="/login"> Login </Link>
                 <Link className='nav-link' to="/register"> Register </Link>
               </>
+            ) : (
+              <button onClick={logout}> Logout </button>
             )}
+
+            <h5>{authState.username}</h5>
           </div>
 
           <Routes>

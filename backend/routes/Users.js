@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
         // Using secret token to create access token
         const accessToken = sign({ username: user.username, id: user.id }, "gmsjgiobkqxqmhk");
 
-        return res.json(accessToken);
+        return res.json({token: accessToken, username: user.username, id: user.id});
     })
 
 });
