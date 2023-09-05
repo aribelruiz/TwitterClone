@@ -52,10 +52,11 @@ function App() {
                 <Link className='nav-link' to="/register"> Register </Link>
               </>
             ) : (
-              <button onClick={logout}> Logout </button>
+              <div className='nav-right'>
+                <p className='username'>{authState.username}</p>
+                <button onClick={logout}> Logout </button>
+              </div>
             )}
-
-            <h5>{authState.username}</h5>
           </div>
 
           <Routes>
