@@ -1,4 +1,5 @@
 import { React, useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../helpers/AuthContext';
@@ -8,6 +9,7 @@ function Post() {
 
     let {id} = useParams();
     const { authState } = useContext(AuthContext);
+    let navigate = useNavigate();
 
     const [postObj, setPostObj] = useState({});
     const [comments, setComments] = useState([]);
@@ -47,7 +49,7 @@ function Post() {
     const deleteComment = (id) => {
         axios.delete(
             `http://localhost:8080/comments/${id}`, 
-            {   headers: { accessToken: localStorage.getItem("accessToken") }}
+            { headers: { accessToken: localStorage.getItem("accessToken") }}
         ).then(() => {
             setComments(
                 comments.filter((val) => {
@@ -57,12 +59,26 @@ function Post() {
         });
     };
 
+    const deletePost = (id) => {
+        axios.delete(
+            `http://localhost:8080/posts/${id}`, 
+            { headers: { accessToken: localStorage.getItem("accessToken") }}
+        ).then(() => {
+            navigate('/');
+        });
+    };
+
     return (
         <div className='post-page'>
             <div className='post'> 
                 <div className='post-header'> {postObj.title} </div>
                 <div className='post-body'> {postObj.postText} </div> 
-                <div className='post-footer'> {postObj.username} </div>
+                <div className='post-footer'>
+                    {postObj.username}
+                    { authState.username === postObj.username && (
+                        <button onClick={() => {deletePost(postObj.id)}}>Delete Post</button>
+                    )} 
+                </div>
             </div>
             <div className='post-comments'>
                 <div className='comments'> 
