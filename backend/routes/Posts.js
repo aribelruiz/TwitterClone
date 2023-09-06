@@ -13,14 +13,14 @@ router.get("/", validateToken, async (req, res) => {
 
 router.get("/postById/:id", async (req, res) => {
     const id =  req.params.id;
-    
     const post = await Posts.findByPk(id);
 
     res.json(post);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", validateToken, async (req, res) => {
     const post = req.body;
+    post.username = req.user.username;
     await Posts.create(post);
 
     res.json(post);

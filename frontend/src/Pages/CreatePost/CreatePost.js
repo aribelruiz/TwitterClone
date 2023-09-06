@@ -15,7 +15,6 @@ function CreatePost() {
   const inititalValues = {
     title: "",
     postText: "",
-    username: "",
   };
 
   useEffect(() => {
@@ -28,12 +27,14 @@ function CreatePost() {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("You must input a title"),
     postText: Yup.string().required(),
-    username: Yup.string().min(3).max(15).required(),
-
   });
   
   const onSubmit = (data) => {
-    axios.post("http://localhost:8080/posts", data).then((res) => {
+    axios.post(
+      "http://localhost:8080/posts", 
+      data,
+      { headers: {accessToken: localStorage.getItem('accessToken')} },
+    ).then((res) => {
       navigate(`/`);
     });
   }
@@ -49,11 +50,7 @@ function CreatePost() {
                 <label> Post </label>
                 <ErrorMessage name='postText' component='span'/>
                 <Field id='inputCreatePost' name='postText' placeholder="(Ex. Post Text...)"/>
-               
-                <label> Username </label>
-                <ErrorMessage name='username' component='span'/>
-                <Field id='inputCreatePost' name='username' placeholder="(Ex. user123...)"/>
-
+                
                 <button type='submit'> Create Post </button>
             </Form>
         </Formik>
