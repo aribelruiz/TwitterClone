@@ -1,6 +1,6 @@
 $postRadius: 15px;
 $postBlue: rgb(120, 188, 211);
-$postGray: rgb(214, 214, 214);
+$postGray: rgb(231, 231, 231);
 
 // Post
 .post {
@@ -33,8 +33,27 @@ $postGray: rgb(214, 214, 214);
 .post-footer {
     background-color: $postGray;
     border-radius: 0px 0px $postRadius $postRadius;
-    text-align: end;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 7px;
+}
+
+.post-footer-right {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.liked-btn {
+    color: rgb(0, 168, 224);
+}
+.unliked-btn {
+    color: rgba(169, 169, 169, 0.981);
+}
+.liked-btn:hover, .unliked-btn:hover {
+    color: rgb(0, 142, 189);
 }
 
 // Post Page
