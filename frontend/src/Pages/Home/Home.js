@@ -18,7 +18,11 @@ function Home() {
     const [likedPosts, setLikedPosts] = useState([]);
 
     useEffect(() => {
-        axios.get(
+
+        if(!authState.status) {
+            navigate('/login');
+        } else {
+            axios.get(
                 "http://localhost:8080/posts",
                 { headers: {accessToken: localStorage.getItem("accessToken")} }
             ).then((res) => {
@@ -27,6 +31,8 @@ function Home() {
                 return like.PostId;
             }));
         });
+        }
+        // eslint-disable-next-line
     }, []);
 
     const likePost = (postId) => {
