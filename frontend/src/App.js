@@ -6,6 +6,7 @@ import CreatePost from './Pages/CreatePost/CreatePost';
 import Post from './Pages/Post/Post';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
 
 import { AuthContext } from './helpers/AuthContext';
 import { useState, useEffect } from 'react';
@@ -66,6 +67,7 @@ function App() {
             <Route path='/register' element={<Register/>}/>
             <Route path='/create-post' element={<CreatePost/>}/>
             <Route path='/post/:id' element={<Post/>}/>
+            <Route path="*" element={<PageNotFound/>} />
           </Routes>
         </Router>
       </AuthContext.Provider>
