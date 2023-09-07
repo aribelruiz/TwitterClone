@@ -26,11 +26,11 @@ function Home() {
                 "http://localhost:8080/posts",
                 { headers: {accessToken: localStorage.getItem("accessToken")} }
             ).then((res) => {
-            setListOfPosts(res.data.listOfPosts);
-            setLikedPosts(res.data.likedPosts.map((like) => {
-                return like.PostId;
-            }));
-        });
+                setListOfPosts(res.data.listOfPosts);
+                setLikedPosts(res.data.likedPosts.map((like) => {
+                    return like.PostId;
+                }));
+            });
         }
         // eslint-disable-next-line
     }, []);
