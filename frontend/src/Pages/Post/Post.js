@@ -68,11 +68,58 @@ function Post() {
         });
     };
 
+    const editPost = (option) => {
+        if (option === 'title') {
+            let newTitle = prompt("Enter new title: ");
+
+            if (newTitle === "") {
+                // do nothing, title can not be empty string
+            }
+            else if (newTitle) {
+                axios.put(`http://localhost:8080/posts/editTitle`, 
+                    {newTitle: newTitle, id: id},
+                    { headers: { accessToken: localStorage.getItem("accessToken") }}
+                ).then((res) => {
+                    setPostObj({...postObj, title: newTitle});
+                })
+            }
+
+        }
+        else {
+            let newPostText = prompt("Enter new text: ");
+
+            if (newPostText === "") {
+                // do nothing, post text can not be empty string
+            }
+            else if (newPostText) {
+                axios.put(`http://localhost:8080/posts/editPostText`, 
+                    {newText: newPostText, id: id},
+                    { headers: { accessToken: localStorage.getItem("accessToken") }}
+                ).then((res) => {
+                    setPostObj({...postObj, postText: newPostText});
+                })
+            }
+
+        }
+    }
+
     return (
         <div className='post-page'>
             <div className='post'> 
-                <div className='post-header'> {postObj.title} </div>
-                <div className='post-body'> {postObj.postText} </div> 
+                <div className={(authState.username === postObj.username)? 'post-header post-editable' : 'post-header'} onClick={() => {
+                    if(authState.username === postObj.username) {
+                        editPost('title');
+                    }
+                }}> 
+                    {postObj.title} 
+                </div>
+                <div className={(authState.username === postObj.username)? 'post-body post-editable' : 'post-body'}  onClick={() => {
+                    if(authState.username === postObj.username) {
+                        editPost('body');
+                    }
+                }}>
+                    {postObj.postText} 
+                </div> 
                 <div className='post-footer'>
                     {postObj.username}
                     { authState.username === postObj.username && (

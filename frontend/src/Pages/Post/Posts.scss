@@ -30,6 +30,10 @@ $postGray: rgb(231, 231, 231);
     padding: 7%;
 }
 
+.post-editable:hover {
+    cursor: auto;
+}
+
 .post-footer {
     background-color: $postGray;
     border-radius: 0px 0px $postRadius $postRadius;
