@@ -57,7 +57,11 @@ function App() {
                 <Link className='nav-link' to="/"> Home Page </Link>
                 <Link className='nav-link' to="/create-post"> Create A Post </Link>
                 <div className='nav-right'>
-                  <p className='username'>{authState.username}</p>
+                  <p className='username'>
+                    <Link to={`/profile/${authState.id}`}>
+                      {authState.username}
+                    </Link>
+                  </p>
                   <button onClick={logout}> Logout </button>
                 </div>
               </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../helpers/AuthContext';
 
 // Import CSS
@@ -90,7 +90,7 @@ function Home() {
                     <div className='post-body' onClick={() => navigate(`/post/${post.id}`)}> {post.postText} </div> 
                     <div className='post-footer'> 
                         <div className='post-footer-left'>
-                            {post.username} 
+                            <Link to={`/profile/${post.UserId}`}> {post.username} </Link>
                         </div>
                         <div className='post-footer-right'>
                             <ThumbUpIcon 
