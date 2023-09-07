@@ -57,10 +57,8 @@ function App() {
                 <Link className='nav-link' to="/"> Home Page </Link>
                 <Link className='nav-link' to="/create-post"> Create A Post </Link>
                 <div className='nav-right'>
-                  <p className='username'>
-                    <Link to={`/profile/${authState.id}`}>
-                      {authState.username}
-                    </Link>
+                  <p className='username' onClick={() => window.location.replace(`/profile/${authState.id}`)}>
+                    {authState.username}
                   </p>
                   <button onClick={logout}> Logout </button>
                 </div>
