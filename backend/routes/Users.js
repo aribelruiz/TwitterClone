@@ -40,8 +40,19 @@ router.post("/login", async (req, res) => {
 
 });
 
+// Route for authorizing user
 router.get("/authorized", validateToken, async (req, res) => {
     return res.json(req.user);
+});
+
+// Get user info by id 
+router.get("/userinfo/:id", async (req, res) => {
+    const id = req.params.id;
+
+    const userInfo = await Users.findByPk(id, {
+        attributes: {exclude: ['password']}
+    });
+    return res.json(userInfo);
 });
 
 module.exports = router;
