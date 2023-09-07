@@ -97,6 +97,9 @@ function Profile() {
     <div className='profile-page'>
         <div className='profile-info'>
             <h1>Username: {username}</h1>
+            { (authState.username === username) && 
+                <button onClick={() => {navigate('/edit-profile')}}> Edit Profile </button>
+            }   
         </div>
         <div className='profile-posts'>
             {(userPosts.length > 0)? 

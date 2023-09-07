@@ -7,6 +7,7 @@ import Post from './Pages/Post/Post';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import Profile from './Pages/Profile/Profile';
+import EditProfile from './Pages/EditProfile/EditProfile';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 
 import { AuthContext } from './helpers/AuthContext';
@@ -72,6 +73,7 @@ function App() {
             <Route path='/register' element={<Register/>}/>
             <Route path='/create-post' element={<CreatePost/>}/>
             <Route path='/profile/:id' element={<Profile/>}/>
+            <Route path='/edit-profile' element={<EditProfile/>}/>
             <Route path='/post/:id' element={<Post/>}/>
             <Route path="*" element={<PageNotFound/>} />
           </Routes>

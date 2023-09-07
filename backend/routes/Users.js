@@ -31,7 +31,6 @@ router.post("/login", async (req, res) => {
         if (!match)
             return res.json({error: "Wrong username and password combination."});
 
-
         // Using secret token to create access token
         const accessToken = sign({ username: user.username, id: user.id }, "gmsjgiobkqxqmhk");
 
@@ -53,6 +52,25 @@ router.get("/userinfo/:id", async (req, res) => {
         attributes: {exclude: ['password']}
     });
     return res.json(userInfo);
+});
+
+// Update User password
+router.put("/updatepassword", validateToken, async (req, res) => {
+    const {oldPassword, newPassword} = req.body;
+    const user = await Users.findOne({ where: {username: req.user.username}});
+
+    // Check if old password matches user password
+    bcrypt.compare(oldPassword, user.password).then(async (match) => {
+        if (!match)
+            return res.json({error: "Old password is incorrect."});
+
+        bcrypt.hash(newPassword, 10).then((hash) => {
+            Users.update({password: hash}, {where: {username: req.user.username}});
+            res.json('Password successfully updated.');
+        });
+
+    });
+
 });
 
 module.exports = router;
