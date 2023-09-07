@@ -55,6 +55,9 @@ $postGray: rgb(231, 231, 231);
 .liked-btn:hover, .unliked-btn:hover {
     color: rgb(0, 142, 189);
 }
+.unliked-btn:hover {
+    color: rgba(121, 121, 121, 0.981);
+}
 
 // Post Page
 .post-page .post:hover{
