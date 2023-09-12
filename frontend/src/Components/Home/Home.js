@@ -9,7 +9,7 @@ import CreatePost from '../CreatePost/CreatePost';
 import '../Post/Posts.scss'
 
 // Import Icons
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import HeartIcon from '@mui/icons-material/Favorite';
 
 function Home() {
 
@@ -95,7 +95,7 @@ function Home() {
                             <Link to={`/profile/${post.UserId}`}> {post.username} </Link>
                         </div>
                         <div className='post-footer-right'>
-                            <ThumbUpIcon 
+                            <HeartIcon 
                                 className={likedPosts.includes(post.id)? 'liked-btn' : 'unliked-btn'} 
                                 onClick={() => {likePost(post.id)}}
                             />

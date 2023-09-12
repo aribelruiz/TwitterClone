@@ -7,7 +7,7 @@ import axios from 'axios';
 import './Profile.scss';
 
 // Import Icons
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import HeartIcon from '@mui/icons-material/Favorite';
 
 function Profile() {
 
@@ -113,7 +113,7 @@ function Profile() {
                                     {post.username} 
                                 </div>
                                 <div className='post-footer-right'>
-                                    <ThumbUpIcon 
+                                    <HeartIcon 
                                         className={likedPosts.includes(post.id)? 'liked-btn' : 'unliked-btn'} 
                                         onClick={() => {likePost(post.id)}}
                                     />
