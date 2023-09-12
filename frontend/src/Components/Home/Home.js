@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../helpers/AuthContext';
+import CreatePost from '../CreatePost/CreatePost';
 
 // Import CSS
 import '../Post/Posts.scss'
@@ -83,6 +84,7 @@ function Home() {
 
     return (
     <div className='home'>
+        <CreatePost/>
         {listOfPosts.map((post, index) => {
             return (
                 <div className='post' key={index}> 

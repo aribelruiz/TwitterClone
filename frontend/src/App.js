@@ -1,14 +1,14 @@
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-import Home from './Pages/Home/Home';
-import CreatePost from './Pages/CreatePost/CreatePost';
-import Post from './Pages/Post/Post';
-import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
-import Profile from './Pages/Profile/Profile';
-import EditProfile from './Pages/EditProfile/EditProfile';
-import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import Home from './Components/Home/Home';
+import CreatePost from './Components/CreatePost/CreatePost';
+import Post from './Components/Post/Post';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
+import Profile from './Components/Profile/Profile';
+import EditProfile from './Components/EditProfile/EditProfile';
+import PageNotFound from './Components/PageNotFound/PageNotFound';
 
 import { AuthContext } from './helpers/AuthContext';
 import { useState, useEffect } from 'react';
@@ -56,7 +56,6 @@ function App() {
             ) : (
               <>
                 <Link className='nav-link' to="/"> Home Page </Link>
-                <Link className='nav-link' to="/create-post"> Create A Post </Link>
                 <div className='nav-right'>
                   <p className='username' onClick={() => window.location.replace(`/profile/${authState.id}`)}>
                     {authState.username}
@@ -71,7 +70,6 @@ function App() {
             <Route exact path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
-            <Route path='/create-post' element={<CreatePost/>}/>
             <Route path='/profile/:id' element={<Profile/>}/>
             <Route path='/edit-profile' element={<EditProfile/>}/>
             <Route path='/post/:id' element={<Post/>}/>
