@@ -29,6 +29,7 @@ import logoIcon from './Images/aribellogo.png';
 function App() {
 
   const [authState, setAuthState] = useState({username: "", id: 0, status: false});
+  const [page, SetPage] = useState('home');
 
   useEffect(() => {
     axios.get("http://localhost:8080/auth/authorized", {headers: {accessToken: localStorage.getItem('accessToken')}})
@@ -69,29 +70,29 @@ function App() {
             ) : (
               <div className='nav-icons'>
                 <div className='nav-body'>
-                  <Link className='nav-link' to="/"> 
+                  <Link className='nav-link' to="/" onClick={() => SetPage('home')}> 
                     <HomeIcon className='nav-icon'/>
-                    <h3>Home</h3>
+                    <h3 className={(page === 'home'? 'icon-bold': 'icon-reg')}>Home</h3>
                   </Link>
-                  <Link className='nav-link' to="/"> 
+                  <Link className='nav-link' to="/" onClick={() => SetPage('explore')}>  
                     <SearchIcon className='nav-icon'/>
-                    <h3>Explore</h3>
+                    <h3 className={(page === 'explore'? 'icon-bold': 'icon-reg')}>Explore</h3>
                   </Link>
-                  <Link className='nav-link' to="/"> 
+                  <Link className='nav-link' to="/" onClick={() => SetPage('notifications')}> 
                     <NotifcationsIcon className='nav-icon'/>
-                    <h3>Notifications</h3>
+                    <h3 className={(page === 'notifications'? 'icon-bold': 'icon-reg')}>Notifcations</h3>
                   </Link>
-                  <Link className='nav-link' to="/"> 
+                  <Link className='nav-link' to="/" onClick={() => SetPage('messages')}> 
                     <MessageIcon className='nav-icon'/>
-                    <h3>Messages</h3>
+                    <h3 className={(page === 'messages'? 'icon-bold': 'icon-reg')}>Messages</h3>
                   </Link>
-                  <Link className='nav-link' to={`/profile/${authState.id}`}> 
+                  <Link className='nav-link' to={`/profile/${authState.id}`} onClick={() => SetPage('profile')}> 
                     <ProfileIcon className='nav-icon'/>
-                    <h3>Profile</h3>
+                    <h3 className={(page === 'profile'? 'icon-bold': 'icon-reg')}>Profile</h3>
                   </Link>
-                  <Link className='nav-link' to="/"> 
+                  <Link className='nav-link' to="/" onClick={() => SetPage('more')}> 
                     <MoreIcon className='nav-icon'/>
-                    <h3>More</h3>
+                    <h3 className={(page === 'more'? 'icon-bold': 'icon-reg')}>More</h3>
                   </Link>
                   <Link className='nav-link post-btn' to="/"> 
                     <PostIcon className='nav-icon post-icon'/>
