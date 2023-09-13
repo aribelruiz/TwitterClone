@@ -62,7 +62,7 @@ function CreatePost({listOfPosts, setListOfPosts, username}) {
                 <Field id='inputCreatePost' name='postText' placeholder="What is happening?!" autoComplete="off"/>
                 <ErrorMessage name='postText' component='span'/>
                 
-                <button type='submit' onClick={() => {setListOfPosts([...listOfPosts, post])}}> Post </button>
+                <button type='submit'> Post </button>
             </Form>
         </Formik>
     </div>
