@@ -103,9 +103,9 @@ function App() {
                 </div>
 
                 <div className='nav-footer'>
-                  <div className='nav-profile'>
+                  <div className='nav-profile'onClick={() => window.location.replace(`/profile/${authState.id}`)}>
                     <img className='profile-img' src={logoIcon} alt='profile-img'></img>
-                    <p className='username' onClick={() => window.location.replace(`/profile/${authState.id}`)}>
+                    <p className='username'>
                       {authState.username}
                     </p>
                   </div>

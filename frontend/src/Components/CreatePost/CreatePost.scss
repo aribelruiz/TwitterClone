@@ -20,18 +20,6 @@ $navGray: rgb(232, 232, 232);
     padding: 20px 15px 15px 15px;
 }
 
-.create-post .profile-pic {
-    width: 50px;
-    border-radius: 50%;
-    margin-top: 10px;
-    border-color: $navGray;
-    border-style: solid;
-}
-.create-post .profile-pic:hover {
-    cursor: pointer;
-    filter: brightness(90%);
-}
-
 .post-form {
     display: flex;
     flex-direction: column;

@@ -1,15 +1,18 @@
-import { React, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { React, useEffect, useState, useContext } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { AuthContext } from '../../helpers/AuthContext';
+
 
 import './CreatePost.scss';
-import logoIcon from '../../Images/aribellogo.png';
+import profileImg from '../../Images/aribellogo.png';
 
-function CreatePost({listOfPosts, setListOfPosts, username}) {
+function CreatePost({listOfPosts, setListOfPosts}) {
   
   let navigate = useNavigate();
+  const { authState } = useContext(AuthContext);
 
   const inititalValues = {
     title: "",
@@ -19,7 +22,7 @@ function CreatePost({listOfPosts, setListOfPosts, username}) {
   const emptyPost = {
     title: "",
     postText: "",
-    username: username,
+    username: authState.username,
   };
 
   let [post, setPost] = useState(emptyPost);
@@ -50,7 +53,9 @@ function CreatePost({listOfPosts, setListOfPosts, username}) {
   return (
     <div className='create-post'>
       <div className='post-pfp'>
-        <img className='profile-pic' src={logoIcon}/>
+        <Link to={`/profile/${authState.id}`}>
+          <img className='profile-img' src={profileImg} alt='profile-img'></img>
+        </Link>
       </div>
         <Formik initialValues={inititalValues} onSubmit={onSubmit} validationSchema={validationSchema}>
             <Form className='post-form'>

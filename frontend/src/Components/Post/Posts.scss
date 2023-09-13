@@ -1,6 +1,7 @@
 $postRadius: 15px;
 $postBlue: rgb(120, 188, 211);
-$postGray: rgb(231, 231, 231);
+$postGray: rgb(248, 248, 248);
+$navGray: rgb(232, 232, 232);
 
 $heartRed: rgb(240, 10, 29);
 $heartRed2:rgb(191, 12, 27);
@@ -8,49 +9,65 @@ $heartRed2:rgb(191, 12, 27);
 // Post
 .post {
     background-color: rgb(255, 255, 255);
-    border-radius: $postRadius;
+    border-bottom: 1px solid $navGray;
     width: 100%;
-    margin: 3% auto 3% auto;
+    margin: auto;
+    display: flex;
 }
 
-.post:hover {
-    filter: drop-shadow(0px 3px 3px rgb(171, 171, 171));
-    transition: filter 0.2s ease;
+.home .post:hover {
+    background-color: $postGray;
+    transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
 .post-header {
-    background-color: $postBlue;
-    color: white;
-    border-radius: $postRadius $postRadius 0px 0px;
-    padding: 7px;
+    padding: 10px;
 }
 
+
 .post-body {
-    border-color: $postGray;
-    border-style: solid;
-    border-top: none;
-    padding: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 10px 10px 10px;
+}
+
+.post-body-top {
+    display: flex;
+}
+
+.post-body-top .timestamp {
+    font-weight: 400;
+    color: rgba(151, 151, 154, 0.787);
+}
+
+.post-body-center {
+    width: 100%;
+    text-align: left;
+}
+
+.post-body h3, .post-body h4, .post-body h5 {
+    margin: 3px;
+    font-weight: normal;
+}
+
+.post-body h3 {
+    font-weight: 600;
 }
 
 .post-editable:hover {
     cursor: auto;
 }
 
-.post-footer {
-    background-color: $postGray;
-    border-radius: 0px 0px $postRadius $postRadius;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 7px;
-}
+.post-footer {    
+    width: 100%;
 
-.post-footer-right {
     display: flex;
     align-items: center;
-    column-gap: 5px;
+    justify-content: flex-end;
 }
 
 .liked-btn {
