@@ -32,8 +32,12 @@ body {
 }
 
 #logo-icon {
-  width: 50px;
+  width: 40px;
   padding: 5px;
+}
+
+.navbar {
+  padding-top: 20px;
 }
 
 .navbar button {
@@ -82,12 +86,12 @@ body {
 
 .nav-body {
   min-width: fit-content;
-  width: 20vw;
+  width: 15vw;
 }
 
 .nav-logo, .nav-icons {
+  width: 60%;
   min-width: fit-content;
-  width: 70%;
 }
 
 .nav-icons {
@@ -97,11 +101,17 @@ body {
   justify-content: space-between;
 }
 
+.nav-icons svg {
+  width: 40px;
+  font-size: xx-large;
+}
+
 .nav-icons .post-btn {
   background-color: $postBlue;
   color: white;
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
 }
 .nav-icons .post-btn:hover {
   background-color: $postBlue2;
