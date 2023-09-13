@@ -1,31 +1,53 @@
 
 $postRadius: 15px;
-$postBlue: rgb(120, 188, 211);
+$postBlue: #229cff;
+$postBlue2: #1b7fd1;
+$navGray: rgb(232, 232, 232);
 
 .create-post {
     display: flex;
     justify-content: center;
+    border-color: $navGray;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 10px;
+
+    padding: 20px 15px 15px 15px;
+}
+
+.create-post .profile-pic {
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border-color: $navGray;
+    border-style: solid;
+}
+.create-post .profile-pic:hover {
+    cursor: pointer;
+    filter: brightness(90%);
 }
 
 .post-form {
-    background-color: rgb(241, 241, 241);
-    border-color: rgb(156, 156, 156);
-    border-style: solid;
-    border-radius: $postRadius;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
 
-    width: 55vw;
-    padding: 20px;
-    margin: 5%;
+    width: 90%;
 }
 
 .post-form input {
     height: 40px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: large;
+    border-style: none;
+    border-bottom: 1px solid $navGray;
+    outline: none;
 }
 
 .post-form span{
@@ -36,13 +58,17 @@ $postBlue: rgb(120, 188, 211);
     background-color: $postBlue;
     color: white;
     border-style: none;
-    border-radius: $postRadius;
+    border-radius: 30px;
+    font-weight: 600;
 
+    width: fit-content;
+    padding: 0px 20px 0px 20px;
     height: 30%;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-top: 5px;
 }
 
 .post-form button:hover {
-    background-color: rgb(71, 161, 192);
+    background-color: $postBlue2;
     cursor: pointer;
 }

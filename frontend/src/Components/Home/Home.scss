@@ -1,0 +1,23 @@
+$navGray: rgb(232, 232, 232);
+
+.home {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+}
+
+.home-left {
+    // background-color: yellow;
+    min-width: fit-content;
+    width: 60%;
+}
+
+.home-left h2 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.home-right {
+    width: 40%;
+    border-left: 1px solid $navGray;
+}

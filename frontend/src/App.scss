@@ -22,15 +22,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: flex-start;
   height: 100vh;
-  width: 20vw;
-  padding: 10px 50px 0px 50px;
+  width: 25vw;
 }
 
 .main-page {
   width: 100%;
-  margin-left: 20vw;
+  margin-left: 25vw;
 }
 
 #logo-icon {
@@ -82,13 +80,15 @@ body {
 .icon-bold {
   font-weight: 700 !important;
 }
-// .nav-link h3:hover {
-//   font-weight: 700;
-// }
 
 .nav-body {
   min-width: fit-content;
   width: 20vw;
+}
+
+.nav-logo, .nav-icons {
+  min-width: fit-content;
+  width: 70%;
 }
 
 .nav-icons {
@@ -133,7 +133,8 @@ body {
 .nav-profile {
   display: flex;
 }
-.nav-footer .profile-img {
+
+.profile-img {
   width: 50px;
   border-radius: 50%;
 }

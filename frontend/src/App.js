@@ -61,7 +61,9 @@ function App() {
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <Router>
           <div className='navbar'>
-            <img className='nav-link' id='logo-icon' alt='logo' src={logoIcon}/>
+            <div className='nav-logo'>
+              <img className='nav-link' id='logo-icon' alt='logo' src={logoIcon}/>
+            </div>
             {!authState.status ? (
               <>
                 <Link className='nav-link' to="/login"> Login </Link>

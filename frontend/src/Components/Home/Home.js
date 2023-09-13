@@ -6,7 +6,8 @@ import { AuthContext } from '../../helpers/AuthContext';
 import CreatePost from '../CreatePost/CreatePost';
 
 // Import CSS
-import '../Post/Posts.scss'
+import '../Post/Posts.scss';
+import '../Home/Home.scss';
 
 // Import Icons
 import HeartIcon from '@mui/icons-material/Favorite';
@@ -84,27 +85,33 @@ function Home() {
 
     return (
     <div className='home'>
-        <CreatePost/>
-        {listOfPosts.map((post, index) => {
-            return (
-                <div className='post' key={index}> 
-                    <div className='post-header'> {post.title} </div>
-                    <div className='post-body' onClick={() => navigate(`/post/${post.id}`)}> {post.postText} </div> 
-                    <div className='post-footer'> 
-                        <div className='post-footer-left'>
-                            <Link to={`/profile/${post.UserId}`}> {post.username} </Link>
-                        </div>
-                        <div className='post-footer-right'>
-                            <HeartIcon 
-                                className={likedPosts.includes(post.id)? 'liked-btn' : 'unliked-btn'} 
-                                onClick={() => {likePost(post.id)}}
-                            />
-                            <label> {post.Likes.length} </label>
+        <div className='home-left'>
+            <h2>Home</h2>
+            <CreatePost listOfPosts={listOfPosts} setListOfPosts={setListOfPosts} username={authState.username}/>
+            {listOfPosts.map((post, index) => {
+                return (
+                    <div className='post' key={index}> 
+                        <div className='post-header'> {post.title} </div>
+                        <div className='post-body' onClick={() => navigate(`/post/${post.id}`)}> {post.postText} </div> 
+                        <div className='post-footer'> 
+                            <div className='post-footer-left'>
+                                <Link to={`/profile/${post.UserId}`}> {post.username} </Link>
+                            </div>
+                            <div className='post-footer-right'>
+                                <HeartIcon 
+                                    className={likedPosts.includes(post.id)? 'liked-btn' : 'unliked-btn'} 
+                                    onClick={() => {likePost(post.id)}}
+                                />
+                                <label> {post.Likes.length} </label>
+                            </div>
                         </div>
                     </div>
-                </div>
-            );
-        })}
+                );
+            })}
+        </div>
+        <div className='home-right'>
+            Will fill later
+         </div>
     </div>
     );
 }
