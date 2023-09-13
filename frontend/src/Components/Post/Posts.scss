@@ -9,7 +9,7 @@ $heartRed2:rgb(191, 12, 27);
 .post {
     background-color: rgb(255, 255, 255);
     border-radius: $postRadius;
-    max-width: 45%;
+    width: 100%;
     margin: 3% auto 3% auto;
 }
 
@@ -67,6 +67,12 @@ $heartRed2:rgb(191, 12, 27);
 }
 
 // Post Page
+
+.list-of-posts {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .post-page .post:hover{
     filter: none;
     transition: none;

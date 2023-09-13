@@ -101,7 +101,7 @@ function Profile() {
                 <button onClick={() => {navigate('/edit-profile')}}> Edit Profile </button>
             }   
         </div>
-        <div className='profile-posts'>
+        <div className='list-of-posts'>
             {(userPosts.length > 0)? 
                 userPosts.map((post, index) => {
                     return (
