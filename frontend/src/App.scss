@@ -32,7 +32,7 @@ body {
 }
 
 #logo-icon {
-  width: 40px;
+  width: 50px;
   padding: 5px;
 }
 
@@ -102,7 +102,6 @@ body {
 }
 
 .nav-icons svg {
-  width: 40px;
   font-size: xx-large;
 }
 
@@ -130,8 +129,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  // background-color: red;
-  padding: 10px;
+  padding: 5px;
   border-radius: 30px;
   margin-bottom: 30px;
 }
@@ -141,11 +139,13 @@ body {
 
 .nav-profile {
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: fit-content;
 }
 
 .profile-img {
-  width: 40px;
+  width: 50px;
   border-radius: 50%;
   margin-top: 10px;
   border-color: $navGray;
@@ -156,6 +156,9 @@ body {
   filter: brightness(90%);
 }
 
+.nav-profile .profile-img {
+  margin: 0px;
+}
 .navbar .profile-img:hover {
   filter: none;
 }
@@ -167,4 +170,51 @@ body {
 
 .navbar .username:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1250px) {
+
+  .nav-link h3 {
+    display: none;
+  }
+
+  .post-btn .post-icon {
+    display: block;
+    border-radius: 50%;
+  }
+
+  .main-page {
+    margin-left: 15vw;
+  }
+  .navbar {
+    width: 15vw;
+    min-width: fit-content;
+    align-items: flex-start;
+  }
+
+  .nav-logo, .nav-body, .nav-icons {
+    margin: 0px auto 0px auto;
+    width: fit-content;
+  }
+
+  .nav-link {
+    border-radius: 50%;
+  }
+
+  .nav-footer {
+    // background-color: red;
+    flex-direction: column;
+    row-gap: 10px;
+    display: flex;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav-footer p {
+    display: none;
+  }
+  .nav-footer button {
+    padding: 10px;
+  }
+
 }

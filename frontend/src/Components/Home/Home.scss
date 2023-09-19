@@ -9,6 +9,7 @@ $navGray: rgb(232, 232, 232);
 .home-left {
     // background-color: yellow;
     min-width: fit-content;
+    border-right: 1px solid $navGray;
     width: 60%;
 }
 
@@ -20,5 +21,15 @@ $navGray: rgb(232, 232, 232);
 
 .home-right {
     width: 40%;
-    border-left: 1px solid $navGray;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .home-left {
+        width: 90%;
+    }
+
+    .home-right {
+        display: none;
+    }
 }
