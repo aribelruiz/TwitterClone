@@ -1,5 +1,6 @@
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Tooltip from "@mui/material/Tooltip";
 
 import Home from './Components/Home/Home';
 import Post from './Components/Post/Post';
@@ -72,34 +73,54 @@ function App() {
             ) : (
               <div className='nav-icons'>
                 <div className='nav-body'>
-                  <Link className='nav-link' to="/" onClick={() => SetPage('home')}> 
-                    <HomeIcon className='nav-icon'/>
-                    <h3 className={(page === 'home'? 'icon-bold': 'icon-reg')}>Home</h3>
-                  </Link>
-                  <Link className='nav-link' to="/" onClick={() => SetPage('explore')}>  
-                    <SearchIcon className='nav-icon'/>
-                    <h3 className={(page === 'explore'? 'icon-bold': 'icon-reg')}>Explore</h3>
-                  </Link>
-                  <Link className='nav-link' to="/" onClick={() => SetPage('notifications')}> 
-                    <NotifcationsIcon className='nav-icon'/>
-                    <h3 className={(page === 'notifications'? 'icon-bold': 'icon-reg')}>Notifcations</h3>
-                  </Link>
-                  <Link className='nav-link' to="/" onClick={() => SetPage('messages')}> 
-                    <MessageIcon className='nav-icon'/>
-                    <h3 className={(page === 'messages'? 'icon-bold': 'icon-reg')}>Messages</h3>
-                  </Link>
-                  <Link className='nav-link' to={`/profile/${authState.id}`} onClick={() => SetPage('profile')}> 
-                    <ProfileIcon className='nav-icon'/>
-                    <h3 className={(page === 'profile'? 'icon-bold': 'icon-reg')}>Profile</h3>
-                  </Link>
-                  <Link className='nav-link' to="/" onClick={() => SetPage('more')}> 
-                    <MoreIcon className='nav-icon'/>
-                    <h3 className={(page === 'more'? 'icon-bold': 'icon-reg')}>More</h3>
-                  </Link>
-                  <Link className='nav-link post-btn' to="/"> 
-                    <PostIcon className='nav-icon post-icon'/>
-                    <h3>Post</h3>
-                  </Link>
+                  <Tooltip title='Home' placement='right'>
+                    <Link className='nav-link' to="/" onClick={() => SetPage('home')}> 
+                      <HomeIcon className='nav-icon'/>
+                      <h3 className={(page === 'home'? 'icon-bold': 'icon-reg')}>Home</h3>
+                    </Link>
+                  </Tooltip>
+
+                  <Tooltip title='Explore' placement='right'>
+                    <Link className='nav-link' to="/" onClick={() => SetPage('explore')}>  
+                      <SearchIcon className='nav-icon'/>
+                      <h3 className={(page === 'explore'? 'icon-bold': 'icon-reg')}>Explore</h3>
+                    </Link>
+                  </Tooltip>
+                 
+                  <Tooltip title='Notifications' placement='right'>
+                      <Link className='nav-link' to="/" onClick={() => SetPage('notifications')}> 
+                        <NotifcationsIcon className='nav-icon'/>
+                        <h3 className={(page === 'notifications'? 'icon-bold': 'icon-reg')}>Notifcations</h3>
+                      </Link>
+                  </Tooltip>
+                  
+                  <Tooltip title='Messages' placement='right'>
+                    <Link className='nav-link' to="/" onClick={() => SetPage('messages')}> 
+                      <MessageIcon className='nav-icon'/>
+                      <h3 className={(page === 'messages'? 'icon-bold': 'icon-reg')}>Messages</h3>
+                    </Link>
+                  </Tooltip>
+
+                  <Tooltip title='Profile' placement='right'>
+                    <Link className='nav-link' to={`/profile/${authState.id}`} onClick={() => SetPage('profile')}> 
+                      <ProfileIcon className='nav-icon'/>
+                      <h3 className={(page === 'profile'? 'icon-bold': 'icon-reg')}>Profile</h3>
+                    </Link>
+                  </Tooltip>
+                 
+                  <Tooltip title='More' placement='right'>
+                    <Link className='nav-link' to="/" onClick={() => SetPage('more')}> 
+                      <MoreIcon className='nav-icon'/>
+                      <h3 className={(page === 'more'? 'icon-bold': 'icon-reg')}>More</h3>
+                    </Link>
+                  </Tooltip>
+                  
+                  <Tooltip title='Post' placement='right'>
+                    <Link className='nav-link post-btn' to="/"> 
+                      <PostIcon className='nav-icon post-icon'/>
+                      <h3>Post</h3>
+                    </Link>
+                  </Tooltip>
                 </div>
 
                 <div className='nav-footer'>
